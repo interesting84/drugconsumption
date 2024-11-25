@@ -65,8 +65,8 @@ for i in range(len(Education_Drug)):
   Drug = 'Heroin'
   for j in range(len(Modified_Data)):
     if Modified_Data.loc[j,'Education'] == education_level:
-      Education_Drug.loc[i,1] += Modified_Data.loc[j,Drug]
-      Education_Drug.loc[i,2] += 1
+      Education_Drug[i][1] += Modified_Data.loc[j,Drug]
+      Education_Drug[i][2] += 1
   Education_Drug[i][3] = Education_Drug[i][1]/Education_Drug[i][2]
 
 plt.bar(Education_Drug[0], Education_Drug[3])
