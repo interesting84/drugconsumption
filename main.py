@@ -10,7 +10,7 @@ plt.show()
 Modified_Data = Orignial_Data
 
 for i in range(len(Modified_Data)):
-  j = 14
+  j = 13
   while j < 31:
 
     if Modified_Data.iloc[i,j] == 'CL0' or Modified_Data.iloc[i,j] == 'CL1' or Modified_Data.iloc[i,j] == 'CL2':
@@ -38,10 +38,14 @@ Education_Drug = [['Doctorate degree',0,0,0],
 print('line 60')
 for i in range(len(Education_Drug)):
   education_level = Education_Drug[i][0]
-  Drug = 'Coke'
+  Drug = 'Ketamine'
+  Drug1 = 'Mushrooms'
+  Drug2 = 'Ecstasy'
   for j in range(len(Modified_Data)):
     if Modified_Data.loc[j,'Education'] == education_level:
       Education_Drug[i][1] += Modified_Data.loc[j,Drug]
+      Education_Drug[i][1] += Modified_Data.loc[j,Drug1]
+      Education_Drug[i][1] += Modified_Data.loc[j,Drug2]
       Education_Drug[i][2] += 1
   Education_Drug[i][3] = Education_Drug[i][1]/Education_Drug[i][2]
 print(Education_Drug)
