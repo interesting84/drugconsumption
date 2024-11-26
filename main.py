@@ -52,12 +52,14 @@ print('line 49')
 Education_Drug = [['Doctorate degree',0,0,0],
                   ['Masters degree',0,0,0],
                   ['University degree',0,0,0],
-                  ['Professional certificate/diploma',0,0,0],
+                  ['Professional certificate/ diploma',0,0,0],
                   ['Some college or university, no certificate or degree',0,0,0],
                   ['Left school at 18 years',0,0,0],
                   ['Left school at 17 years',0,0,0],
                   ['Left school at 16 years',0,0,0],
                   ['Left school before 16 years',0,0,0]]
+certifications = []
+for x in Education_Drug
 #index 0 is education level index 1 is the sum of the drug score all indivduals in that education level index 2 is number individuals in that education level index 3 is average score for that education level
 print('line 60')
 for i in range(len(Education_Drug)):
@@ -69,7 +71,7 @@ for i in range(len(Education_Drug)):
       Education_Drug[i][2] += 1
   Education_Drug[i][3] = Education_Drug[i][1]/Education_Drug[i][2]
 
-plt.bar(Education_Drug[0], Education_Drug[3])
+plt.bar(str(Education_Drug[0]), str(Education_Drug[3]))
 plt.show()
 input()
 
