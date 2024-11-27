@@ -81,5 +81,10 @@ def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3):
     y_value.append(List_Drug[i][3])
   plt.bar(x_value, y_value)
   plt.show()
+  for i in range(len(List_Drug)):
+    j=1
+    while j < 3:
+      List_Drug[i][j] = 0
+      j +=1
 
 RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','')
