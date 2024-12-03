@@ -21,6 +21,7 @@ for i in range(len(Modified_Data)):
     j += 1
     
 print('Data Reformatted successfully')
+Reformat_Data = Modified_Data
 #all category tables
 #index 0 is education level index 1 is the sum of the drug score all indivduals in that education level index 2 is number individuals in that education level index 3 is average score for that education level
 
@@ -57,10 +58,8 @@ Ethnicity_Drug = [['White',0,0,0],
                   ['Mixed-White/Asian',0,0,0],
                   ['Mixed-Black/Asian',0,0,0]]
 print('line 59')
-def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3):
-  #Calculates the weight
-  #Category is the column name; List_Drug is the category table, Drug 1-3 are the Drugs that you want to test for correlation entry empty string to leave blank
-  print(List_Drug)
+def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3, Drug4, Drug5, Drug6):
+  #Category is the column name; List_Drug is the category table, Drug 1-3 are the Drugs that you want to test for correlation entry empty string to leave blank, UK only is a boolean to filter for only UK or not
   for i in range(len(List_Drug)):
     Category_Value = List_Drug[i][0]
     for j in range(len(Modified_Data)):
@@ -69,6 +68,12 @@ def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3):
         if not Drug2 == '':
           List_Drug[i][1] += Modified_Data.loc[j,Drug2]
         if not Drug3 == '':
+          List_Drug[i][1] += Modified_Data.loc[j,Drug3]
+        if not Drug4 == '':
+          List_Drug[i][1] += Modified_Data.loc[j,Drug3]
+        if not Drug5 == '':
+          List_Drug[i][1] += Modified_Data.loc[j,Drug3]
+        if not Drug6 == '':
           List_Drug[i][1] += Modified_Data.loc[j,Drug3]
         List_Drug[i][2] += 1
     List_Drug[i][3] = List_Drug[i][1]/List_Drug[i][2]
@@ -80,6 +85,7 @@ def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3):
     x_value.append(List_Drug[i][0])
     y_value.append(List_Drug[i][3])
   plt.bar(x_value, y_value)
+  plt.title(Category)
   plt.show()
   for i in range(len(List_Drug)):
     j=1
@@ -87,4 +93,5 @@ def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3):
       List_Drug[i][j] = 0
       j +=1
 
-RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','')
+RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','','','','')
+RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','','','','')
