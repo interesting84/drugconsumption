@@ -58,7 +58,7 @@ Ethnicity_Drug = [['White',0,0,0],
                   ['Mixed-White/Asian',0,0,0],
                   ['Mixed-Black/Asian',0,0,0]]
 print('line 59')
-def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3, Drug4, Drug5, Drug6):
+def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3, Drug4, Drug5, Drug6,Title):
   #Category is the column name; List_Drug is the category table, Drug 1-3 are the Drugs that you want to test for correlation entry empty string to leave blank, UK only is a boolean to filter for only UK or not
   for i in range(len(List_Drug)):
     Category_Value = List_Drug[i][0]
@@ -85,7 +85,8 @@ def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3, Drug4, Drug5, Drug6):
     x_value.append(List_Drug[i][0])
     y_value.append(List_Drug[i][3])
   plt.bar(x_value, y_value)
-  plt.title(Category)
+  plt.title(Title)
+  plt.xlabel(Category)
   plt.show()
   for i in range(len(List_Drug)):
     j=1
@@ -93,5 +94,5 @@ def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3, Drug4, Drug5, Drug6):
       List_Drug[i][j] = 0
       j +=1
 
-RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','','','','')
-RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','','','','')
+RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','','','','','Party Drugs')
+#RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','','','','','Title')
