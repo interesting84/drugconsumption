@@ -21,19 +21,40 @@ for i in range(len(Modified_Data)):
     j += 1
     
 print('Data Reformatted successfully')
+#reformat Education Row for legibility
+for i in range(len(Modified_Data)):
+  if Modified_Data.loc[i, 'Education'] == 'Doctorate degree':
+    Modified_Data.loc[i, 'Education'] = 'PDH'
+  if Modified_Data.loc[i, 'Education'] == 'Masters degree':
+    Modified_Data.loc[i, 'Education'] = 'Masters'
+  if Modified_Data.loc[i, 'Education'] == 'University degree':
+    Modified_Data.loc[i, 'Education'] = 'Degree'
+  if Modified_Data.loc[i, 'Education'] == 'Professional certificate/ diploma':
+    Modified_Data.loc[i, 'Education'] = 'Certificate'
+  if Modified_Data.loc[i, 'Education'] == 'Some college or university, no certificate or degree':
+    Modified_Data.loc[i, 'Education'] = 'Some College'
+  if Modified_Data.loc[i, 'Education'] == 'Left school at 18 years':
+    Modified_Data.loc[i, 'Education'] = 'Left at 18'
+  if Modified_Data.loc[i, 'Education'] == 'Left school at 17 years':
+    Modified_Data.loc[i, 'Education'] = 'Left at 17'
+  if Modified_Data.loc[i, 'Education'] == 'Left school at 16 years':
+    Modified_Data.loc[i, 'Education'] = 'Left at 16'
+  if Modified_Data.loc[i, 'Education'] == 'Left school before 16 years':
+    Modified_Data.loc[i, 'Education'] = 'Left before 16'
+  
 Reformat_Data = Modified_Data
 #all category tables
 #index 0 is education level index 1 is the sum of the drug score all indivduals in that education level index 2 is number individuals in that education level index 3 is average score for that education level
 
-Education_Drug = [['Doctorate degree',0,0,0],
-                  ['Masters degree',0,0,0],
-                  ['University degree',0,0,0],
-                  ['Professional certificate/ diploma',0,0,0],
-                  ['Some college or university, no certificate or degree',0,0,0],
-                  ['Left school at 18 years',0,0,0],
-                  ['Left school at 17 years',0,0,0],
-                  ['Left school at 16 years',0,0,0],
-                  ['Left school before 16 years',0,0,0]]
+Education_Drug = [['PDH',0,0,0],
+                  ['Masters',0,0,0],
+                  ['Degree',0,0,0],
+                  ['Certificate',0,0,0],
+                  ['Some College',0,0,0],
+                  ['Left at 18',0,0,0],
+                  ['Left at 17',0,0,0],
+                  ['Left at 16',0,0,0],
+                  ['Left before 16',0,0,0]]
 
 Age_Drug = [['18-24',0,0,0],
             ['25-34',0,0,0],
@@ -94,5 +115,5 @@ def RunDrugCalc (Category,List_Drug, Drug1, Drug2, Drug3, Drug4, Drug5, Drug6,Ti
       List_Drug[i][j] = 0
       j +=1
 
-RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','','','','','Party Drugs')
+RunDrugCalc('Education',Education_Drug,'Coke','Crack','Heroin','','','','Hard Drugs')
 #RunDrugCalc('Age',Age_Drug,'Ecstasy','Ketamine','','','','','Title')
