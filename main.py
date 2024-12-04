@@ -46,7 +46,7 @@ Reformat_Data = Modified_Data
 #all category tables
 #index 0 is education level index 1 is the sum of the drug score all indivduals in that education level index 2 is number individuals in that education level index 3 is average score for that education level
 
-Education_Drug = [['PDH',0,0,0],
+Education_Drug = [['PHD',0,0,0],
                   ['Masters',0,0,0],
                   ['Degree',0,0,0],
                   ['Certificate',0,0,0],
